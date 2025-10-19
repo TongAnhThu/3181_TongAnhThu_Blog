@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bảo mật trong Java: Nguyên lý cơ bản & cách bảo vệ ứng dụng</title>
+  <meta name="description" content="Các nguyên lý bảo mật cơ bản trong Java: mã hóa mật khẩu (BCrypt/PBKDF2), xử lý đầu vào (SQLi/XSS), quản lý quyền truy cập, HTTPS/TLS — kèm ví dụ ngắn gọn." />
+  <link rel="stylesheet" href="css/blog.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="nav-wrap">
+      <a href="index.html" class="brand" aria-label="Trang web của tôi">
+        <span class="logo">IT</span>
+        <span>Trang web của tôi</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="index.html">Trang chủ</a>
+        <a href="du-an.html">Dự án</a>
+        <a href="lo-trinh-hoc.html">Lộ trình học</a>
+        <a href="bai-chia-se.html" class="active" aria-current="page">Bài chia sẻ</a>
+      </nav>
+
+      <button class="nav-toggle" aria-label="Mở menu" aria-expanded="false"
+              onclick="const l=document.querySelector('.nav-links');const o=l.classList.toggle('open');this.setAttribute('aria-expanded',String(o))">☰</button>
+    </div>
+  </header>
+
+  <!-- ===== LAYOUT ===== -->
+  <main class="wrap">
+    <div class="page-grid">
+      <!-- ===== ARTICLE ===== -->
+      <div class="article-container">
+        <article id="article">
+          <span class="kicker">Java • Security Basics</span>
+          <h1>Bảo mật trong Java: Các nguyên lý cơ bản & cách bảo vệ ứng dụng</h1>
+
+          <p class="lead">
+            Bảo mật là “hàng rào” bắt buộc khi ứng dụng chạy trên Internet. Bài viết tóm tắt 5 trụ cột:
+            <b>mã hóa mật khẩu</b>, <b>xử lý đầu vào</b>, <b>quản lý quyền</b>, <b>HTTPS/TLS</b> và <b>thói quen an toàn</b> — kèm ví dụ ngắn gọn.
+          </p>
+
+          <!-- TOC trong bài -->
+          <div class="card">
+            <strong>Nội dung</strong>
+            <ul class="toc">
+              <li><a href="#gioi-thieu">1) Giới thiệu</a></li>
+              <li><a href="#ma-hoa-mat-khau">2) Mã hóa mật khẩu</a></li>
+              <li><a href="#xu-ly-dau-vao">3) Xử lý đầu vào</a></li>
+              <li><a href="#quyen-truy-cap">4) Quản lý quyền truy cập</a></li>
+              <li><a href="#https-bao-mat-ket-noi">5) HTTPS & bảo mật kết nối</a></li>
+            </ul>
+          </div>
+
+          <section id="gioi-thieu">
+            <h2>1) Giới thiệu</h2>
+            <div class="card">
+              <p>
+                Java cung cấp nhiều công cụ/thư viện giúp xây dựng ứng dụng an toàn. Tư duy phòng thủ gồm:
+                bảo vệ mật khẩu người dùng, “làm sạch” đầu vào để chặn SQLi/XSS, kiểm soát truy cập đúng vai trò,
+                và mã hóa dữ liệu khi truyền tải bằng HTTPS/TLS.
+              </p>
+            </div>
+          </section>
+
+          <section id="ma-hoa-mat-khau">
+            <h2>2) Mã hóa mật khẩu</h2>
+            <div class="card">
+              <p>
+                Không bao giờ lưu mật khẩu dạng thuần. Dùng hàm băm có salt và lặp như <b>BCrypt</b> hoặc <b>PBKDF2</b>
+                (Argon2 cũng tốt nhưng cần thêm thư viện). Ví dụ với BCrypt:
+              </p>
+<pre><code class="language-java">import org.mindrot.jbcrypt.BCrypt;
+
+public class HashDemo {
+    public static void main(String[] args) {
+        String raw = "password123";
+        String hashed = BCrypt.hashpw(raw, BCrypt.gensalt(12)); // cost 12
+
+        boolean ok = BCrypt.checkpw(raw, hashed);
+        System.out.println(ok ? "Mật khẩu đúng" : "Mật khẩu sai");
+    }
+}</code></pre>
+              <p class="muted">Gợi ý: chọn cost đủ cao (10–12+) tùy tài nguyên; không tự viết hàm băm “tự chế”.</p>
+            </div>
+          </section>
+
+          <section id="xu-ly-dau-vao">
+            <h2>3) Xử lý đầu vào</h2>
+            <div class="card">
+              <p><b>SQL Injection:</b> luôn dùng <code>PreparedStatement</code> thay vì nối chuỗi SQL.</p>
+<pre><code class="language-java">import java.sql.*;
+
+String sql = "SELECT id, username FROM users WHERE username = ?";
+try (PreparedStatement ps = conn.prepareStatement(sql)) {
+    ps.setString(1, username);
+    try (ResultSet rs = ps.executeQuery()) {
+        // ... đọc dữ liệu an toàn
+    }
+}</code></pre>
+              <p><b>XSS:</b> escape dữ liệu khi render HTML; tránh chèn trực tiếp vào <code>innerHTML</code>.
+                Với template engine, bật chế độ auto-escape; với API JSON, kiểm tra/giới hạn trường cho phép.</p>
+            </div>
+          </section>
+
+          <section id="quyen-truy-cap">
+            <h2>4) Quản lý quyền truy cập</h2>
+            <div class="card">
+              <ul>
+                <li><b>Xác thực & phân quyền:</b> dùng <b>Spring Security</b> (hoặc Jakarta Security) để quản lý phiên, vai trò (RBAC), và bộ lọc.</li>
+                <li><b>Nguyên tắc ít đặc quyền (PoLP):</b> cấp đúng mức quyền cần thiết cho tài khoản DB, bucket, queue…</li>
+                <li><b>Bảo vệ endpoint:</b> yêu cầu xác thực cho API nhạy cảm; kiểm tra quyền ở server-side (đừng tin dữ liệu client).</li>
+              </ul>
+            </div>
+          </section>
+
+          <section id="https-bao-mat-ket-noi">
+            <h2>5) HTTPS & bảo mật kết nối</h2>
+            <div class="card">
+              <ul>
+                <li><b>Luôn bật HTTPS:</b> mã hóa qua TLS để bảo vệ dữ liệu khi truyền.</li>
+                <li><b>HSTS:</b> bật header HSTS để ép trình duyệt chỉ dùng HTTPS.</li>
+                <li><b>Phiên bản TLS:</b> cấu hình máy chủ/HTTP client dùng TLS hiện đại (v.d. 1.2+).</li>
+                <li><b>Cookie an toàn:</b> đặt <code>Secure</code>, <code>HttpOnly</code>, <code>SameSite</code> cho cookie phiên.</li>
+              </ul>
+            </div>
+          </section>
+        </article>
+      </div>
+
+      <!-- ===== SIDEBAR TOC ===== -->
+      <aside class="toc-side">
+        <div class="toc-box">
+          <div class="toc-title">Mục lục</div>
+          <nav id="toc"></nav>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="lien-he" class="wrap">
+    <div class="card">
+      <p>© 2025 Bảo mật trong Java — Tất cả quyền được bảo lưu.</p>
+    </div>
+  </footer>
+
+  <!-- JS: nếu bạn đã có js/blog.js để tạo TOC & scroll-spy -->
+  <script src="js/blog.js"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Java Cơ Bản - Cú Pháp (Syntax)</title>
+  <meta name="description" content="Tìm hiểu về cú pháp cơ bản trong Java, bao gồm cách khai báo biến, kiểu dữ liệu, câu lệnh điều kiện, vòng lặp, và các khái niệm lập trình quan trọng khác trong Java." />
+
+  <!-- SEO / Social -->
+  <meta property="og:title" content="Java Cơ Bản - Cú Pháp (Syntax)">
+  <meta property="og:description" content="Tìm hiểu về cú pháp cơ bản trong Java, bao gồm cách khai báo biến, kiểu dữ liệu, câu lệnh điều kiện, vòng lặp, và các khái niệm lập trình quan trọng khác trong Java.">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Java Cơ Bản - Cú Pháp (Syntax)",
+      "inLanguage": "vi",
+      "author": {
+        "@type": "Person",
+        "name": "Tống Anh Thư"
+      },
+      "datePublished": "2025-10-19"
+    }
+  </script>
+
+  <link rel="stylesheet" href="css/blog.css" />
+</head>
+
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="nav-wrap">
+      <a href="index.html" class="brand" aria-label="Trang web của tôi">
+        <span class="logo">IT</span>
+        <span>Trang web của tôi</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+
+      <nav class="nav-links">
+        <a href="index.html">Trang chủ</a>
+        <a href="du-an.html">Dự án</a>
+        <a href="lo-trinh-hoc.html">Lộ trình học</a>
+        <a href="bai-chia-se.html" aria-current="page" class="active">Bài chia sẻ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== LAYOUT ===== -->
+  <main class="wrap">
+    <div class="page-grid">
+      <!-- ===== ARTICLE ===== -->
+      <div class="article-container">
+        <article id="article">
+          <span class="kicker">Khám phá Java cơ bản: Cú pháp và các khái niệm cơ bản</span>
+          <h1>Java Cơ Bản - Cú Pháp (Syntax)</h1>
+
+          <p class="lead">
+            Java là một ngôn ngữ lập trình hướng đối tượng mạnh mẽ và phổ biến, với cú pháp dễ hiểu và dễ làm quen. 
+            Bài viết này sẽ cung cấp cho bạn cái nhìn tổng quan về cú pháp cơ bản trong Java, bao gồm cách khai báo biến, sử dụng kiểu dữ liệu, 
+            câu lệnh điều kiện, vòng lặp và các khái niệm lập trình quan trọng khác.
+          </p>
+
+          <!-- TOC trong bài -->
+          <div class="card">
+            <strong>Nội dung</strong>
+            <ul class="toc">
+              <li><a href="#khai-bao-bien">1) Khai báo biến và kiểu dữ liệu trong Java</a></li>
+              <li><a href="#cau-lenh-dieu-kien">2) Câu lệnh điều kiện (if, switch)</a></li>
+              <li><a href="#vong-lap">3) Vòng lặp (for, while)</a></li>
+              <li><a href="#cac-lop-va-doi-tuong">4) Lớp và đối tượng trong Java</a></li>
+            </ul>
+          </div>
+
+          <section id="khai-bao-bien">
+            <h2>1) Khai báo biến và kiểu dữ liệu trong Java</h2>
+            <div class="card">
+              <p>
+                Để khai báo một biến trong Java, ta sử dụng cú pháp:
+                <code>kiểu_dữ_liệu tên_biến;</code>. Java có các kiểu dữ liệu cơ bản như sau:
+              </p>
+              <ul>
+                <li><b>byte</b>: 8-bit, dùng để lưu trữ các số nguyên nhỏ</li>
+                <li><b>int</b>: 32-bit, dùng để lưu trữ số nguyên thông dụng</li>
+                <li><b>double</b>: 64-bit, dùng để lưu trữ số thực</li>
+                <li><b>boolean</b>: Dùng để lưu trữ giá trị <code>true</code> hoặc <code>false</code></li>
+                <li><b>char</b>: Dùng để lưu trữ ký tự Unicode</li>
+              </ul>
+              <p>
+                Ví dụ khai báo một số biến trong Java:
+              </p>
+              <pre><code>int number = 10;
+double price = 99.99;
+boolean isJavaFun = true;
+char grade = 'A';</code></pre>
+            </div>
+          </section>
+
+          <section id="cau-lenh-dieu-kien">
+            <h2>2) Câu lệnh điều kiện (if, switch)</h2>
+            <div class="card">
+              <p>Câu lệnh điều kiện cho phép chương trình kiểm tra các điều kiện và quyết định hành động cần thực hiện.</p>
+              <ul>
+                <li><b>if</b>: Kiểm tra một điều kiện và thực thi khối mã nếu điều kiện đó đúng</li>
+                <li><b>switch</b>: Kiểm tra nhiều trường hợp có thể xảy ra, thích hợp khi có nhiều điều kiện với giá trị rõ ràng.</li>
+              </ul>
+              <p>Ví dụ sử dụng câu lệnh <code>if</code>:</p>
+              <pre><code>int number = 10;
+if (number > 5) {
+    System.out.println("Số lớn hơn 5");
+} else {
+    System.out.println("Số nhỏ hơn hoặc bằng 5");
+}</code></pre>
+              <p>Ví dụ sử dụng câu lệnh <code>switch</code>:</p>
+              <pre><code>int day = 3;
+switch (day) {
+    case 1:
+        System.out.println("Thứ hai");
+        break;
+    case 2:
+        System.out.println("Thứ ba");
+        break;
+    case 3:
+        System.out.println("Thứ tư");
+        break;
+    default:
+        System.out.println("Ngày không hợp lệ");
+}</code></pre>
+            </div>
+          </section>
+
+          <section id="vong-lap">
+            <h2>3) Vòng lặp (for, while)</h2>
+            <div class="card">
+              <p>Vòng lặp giúp thực hiện một khối mã nhiều lần trong chương trình.</p>
+              <ul>
+                <li><b>for</b>: Dùng khi biết trước số lần lặp</li>
+                <li><b>while</b>: Dùng khi không biết trước số lần lặp, vòng lặp sẽ tiếp tục cho đến khi điều kiện không còn đúng</li>
+              </ul>
+              <p>Ví dụ sử dụng vòng lặp <code>for</code>:</p>
+              <pre><code>for (int i = 0; i < 5; i++) {
+    System.out.println(i);
+}</code></pre>
+              <p>Ví dụ sử dụng vòng lặp <code>while</code>:</p>
+              <pre><code>int i = 0;
+while (i < 5) {
+    System.out.println(i);
+    i++;
+}</code></pre>
+            </div>
+          </section>
+
+          <section id="cac-lop-va-doi-tuong">
+            <h2>4) Lớp và đối tượng trong Java</h2>
+            <div class="card">
+              <p>Trong Java, lớp (class) là một khuôn mẫu để tạo ra đối tượng. Lớp định nghĩa các thuộc tính và phương thức mà đối tượng sẽ có.</p>
+              <ul>
+                <li><b>Lớp (Class):</b> Là một bản thiết kế cho đối tượng, chứa các thuộc tính và phương thức.</li>
+                <li><b>Đối tượng (Object):</b> Là một thể hiện cụ thể của lớp.</li>
+              </ul>
+              <p>Ví dụ về lớp và đối tượng trong Java:</p>
+              <pre><code>class Car {
+    String color;
+    int speed;
+
+    void accelerate() {
+        speed += 10;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car();  // Tạo đối tượng từ lớp Car
+        myCar.color = "Red";
+        myCar.speed = 0;
+        myCar.accelerate();  // Gọi phương thức của đối tượng
+        System.out.println("Speed: " + myCar.speed);
+    }
+}</code></pre>
+            </div>
+          </section>
+
+        </article>
+      </div>
+
+      <!-- ===== SIDEBAR ===== -->
+      <aside class="toc-side">
+        <div class="toc-box">
+          <div class="toc-title">Nội dung bài viết</div>
+          <nav id="toc"></nav>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- ===== Related ===== -->
+  <section class="related-articles compact">
+    <h2>Đề xuất bài viết khác</h2>
+    <div class="related-card">
+      <a href="article1.html">
+        <img src="images\tải xuống (1).jpeg" alt="Java 8" class="related-card-img">
+        <h3>Java 8: Những tính năng mới quan trọng</h3>
+      </a>
+    </div>
+    <div class="related-card">
+        <a href="Exception.html" class="related-card-link">
+            <img src="images\tải xuống (4).jpeg" alt="Exception Handling" class="related-card-img">
+            <h3>Quản Lý Ngoại Lệ trong Java</h3>
+        </a>
+    </div>
+  </section>
+
+  <!-- Chỉ giữ blog.js cho TOC/scroll -->
+  <script src="js/blog.js"></script>
+</body>
+
+</html>

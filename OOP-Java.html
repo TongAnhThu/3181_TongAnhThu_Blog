@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lập Trình Hướng Đối Tượng (OOP) trong Java</title>
+  <meta name="description" content="OOP trong Java: Class, Object, Kế thừa, Đóng gói, Đa hình, Trừu tượng – kèm ví dụ code, ưu điểm và kết luận." />
+  <link rel="stylesheet" href="css/blog.css" />
+</head>
+<body>
+
+  <!-- NAVBAR khớp CSS -->
+  <header class="navbar">
+    <div class="nav-wrap">
+      <a class="brand" href="#">
+        <span class="logo">JT</span>
+        <span>Blog Của Tôi</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="#" class="active">Trang Chủ</a>
+        <a href="#">Giới Thiệu</a>
+        <a href="#">Bài Viết</a>
+        <a href="#lien-he">Liên Hệ</a>
+      </nav>
+
+      <button class="nav-toggle" aria-expanded="false" aria-label="Mở menu">☰</button>
+    </div>
+  </header>
+
+  <!-- MAIN khớp layout .wrap + .page-grid -->
+  <main class="wrap">
+    <div class="page-grid">
+      <!-- Cột bài viết -->
+      <div class="article-container">
+        <article>
+          <span class="kicker">Java • OOP</span>
+          <h1>Lập Trình Hướng Đối Tượng (OOP) trong Java</h1>
+          <p class="lead">OOP tổ chức mã nguồn thành <b>đối tượng</b> và <b>lớp</b>, giúp hệ thống dễ mở rộng, dễ bảo trì – nhất là khi dự án lớn dần.</p>
+
+          <p class="muted">Được viết bởi <b>Chau</b> • <time datetime="2025-10-17">17 Tháng 10</time></p>
+
+          <h2>Các Khái Niệm Cơ Bản trong OOP</h2>
+
+          <h3>1. Lớp (Class)</h3>
+          <p>Lớp là bản thiết kế (blueprint) cho các đối tượng. Nó định nghĩa <i>thuộc tính</i> (fields) và <i>phương thức</i> (methods).</p>
+
+<pre><code>class Car {
+    String color;
+    String model;
+    
+    void start() {
+        System.out.println("The " + model + " is starting.");
+    }
+    
+    void stop() {
+        System.out.println("The " + model + " is stopping.");
+    }
+}</code></pre>
+
+          <p>Ở trên, <code>Car</code> có thuộc tính <code>color</code>, <code>model</code> và hai phương thức <code>start()</code>, <code>stop()</code>.</p>
+
+          <h3>2. Đối Tượng (Object)</h3>
+          <p>Đối tượng là thể hiện cụ thể của lớp; mỗi đối tượng có trạng thái riêng (giá trị các field).</p>
+
+<pre><code>public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car();
+        myCar.color = "Red";
+        myCar.model = "Sedan";
+        myCar.start();
+    }
+}</code></pre>
+
+          <h3>3. Kế Thừa (Inheritance)</h3>
+          <p>Lớp con kế thừa thuộc tính/phương thức của lớp cha để tái sử dụng mã và tạo phân cấp.</p>
+
+<pre><code>class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}</code></pre>
+
+          <h3>4. Đóng Gói (Encapsulation)</h3>
+          <p>Ẩn chi tiết bên trong và cung cấp API công khai để truy cập dữ liệu một cách an toàn, có kiểm soát.</p>
+
+<pre><code>class Account {
+    private double balance;
+    
+    public void deposit(double amount) {
+        if (amount &gt; 0) {
+            balance += amount;
+        }
+    }
+    
+    public double getBalance() {
+        return balance;
+    }
+}</code></pre>
+
+          <h3>5. Đa Hình (Polymorphism)</h3>
+          <p>Một tham chiếu kiểu cha có thể trỏ đến thể hiện kiểu con; hành vi phụ thuộc lớp thực tế lúc chạy (runtime).</p>
+
+<pre><code>class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}</code></pre>
+
+          <h3>6. Trừu Tượng (Abstraction)</h3>
+          <p>Chỉ bộc lộ phần thiết yếu. Dùng <em>abstract class</em> hoặc <em>interface</em> để định nghĩa hợp đồng hành vi.</p>
+
+<pre><code>abstract class Animal {
+    abstract void sound();
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}</code></pre>
+
+          <!-- MỤC 4 theo yêu cầu -->
+          <h2>4. Ưu điểm của OOP trong Java</h2>
+          <p>Lập trình hướng đối tượng mang lại nhiều lợi ích, đặc biệt là khi làm việc với các phần mềm phức tạp. Một số lợi ích bao gồm:</p>
+          <ul class="card">
+            <li><b>Tính tái sử dụng:</b> Các lớp có thể được tái sử dụng nhiều lần mà không cần phải viết lại mã nguồn.</li>
+            <li><b>Dễ bảo trì:</b> Chia nhỏ chương trình thành các đối tượng giúp việc bảo trì, cô lập lỗi, viết test thuận tiện.</li>
+            <li><b>Tính mở rộng:</b> Mở rộng qua kế thừa và đa hình mà không cần thay đổi quá nhiều mã nguồn hiện có.</li>
+          </ul>
+
+          <!-- KẾT LUẬN theo yêu cầu -->
+          <h2>5. Kết luận</h2>
+          <p>OOP là một phương pháp lập trình mạnh mẽ và dễ quản lý, đặc biệt là khi làm việc với các hệ thống phần mềm lớn. Java, với khả năng hỗ trợ lập trình hướng đối tượng, giúp bạn tạo ra những ứng dụng linh hoạt và dễ bảo trì. Khi bạn nắm vững các nguyên tắc OOP, bạn sẽ thấy rằng việc phát triển phần mềm sẽ trở nên dễ dàng hơn bao giờ hết.</p>
+
+          <p><a href="#" class="link">Đọc tiếp…</a></p>
+        </article>
+      </div>
+
+      <!-- Cột TOC khớp .toc-side / .toc-box / #toc -->
+      <aside class="toc-side">
+        <div class="toc-box">
+          <div class="toc-title">Mục lục</div>
+          <nav id="toc" aria-label="Mục lục bài viết"></nav>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- FOOTER đơn giản -->
+  <footer id="lien-he" class="wrap">
+    <div class="card">
+      <p>&copy; 2025 Blog Của Tôi — Tất cả các quyền được bảo lưu.</p>
+    </div>
+  </footer>
+
+  <!-- JS nhỏ: toggle menu + tạo TOC + active link (khớp CSS của bạn) -->
+  <script>
+    // Toggle mobile menu
+    const toggle = document.querySelector('.nav-toggle');
+    const links  = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      const isOpen = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Tạo TOC từ h2/h3
+    const tocRoot = document.getElementById('toc');
+    const headings = [...document.querySelectorAll('.article-container article h2, .article-container article h3')];
+
+    const slugify = (s) => s.toLowerCase()
+      .normalize('NFD').replace(/\p{Diacritic}/gu, '')
+      .replace(/[^a-z0-9\s-]/g, '')
+      .trim().replace(/\s+/g, '-');
+
+    const ul = document.createElement('ul');
+    headings.forEach(h => {
+      if (!h.id) h.id = slugify(h.textContent);
+      const li = document.createElement('li');
+      const a  = document.createElement('a');
+      a.href = '#'+h.id;
+      a.textContent = h.textContent;
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.getElementById(h.id).scrollIntoView({behavior:'smooth', block:'start'});
+        history.replaceState(null, '', '#'+h.id);
+      });
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    tocRoot.appendChild(ul);
+
+    // Active link khi cuộn (scroll-spy)
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.id;
+        const link = tocRoot.querySelector(`a[href="#${id}"]`);
+        if (!link) return;
+        if (entry.isIntersecting) {
+          tocRoot.querySelectorAll('a.active').forEach(a => a.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-120px 0px -60% 0px', threshold: 0 });
+    headings.forEach(h => io.observe(h));
+  </script>
+</body>
+</html>

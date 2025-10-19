@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Java và Công Nghệ WebSocket</title>
+  <meta name="description"
+    content="Tìm hiểu về công nghệ WebSocket trong Java, cách sử dụng WebSocket để xây dựng các ứng dụng thời gian thực như chat, thông báo, và các game trực tuyến." />
+
+  <!-- SEO / Social -->
+  <meta property="og:title" content="Java và Công Nghệ WebSocket">
+  <meta property="og:description"
+    content="Tìm hiểu về công nghệ WebSocket trong Java, cách sử dụng WebSocket để xây dựng các ứng dụng thời gian thực như chat, thông báo, và các game trực tuyến.">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Java và Công Nghệ WebSocket",
+      "inLanguage": "vi",
+      "author": {
+        "@type": "Person",
+        "name": "Tống Anh Thư"
+      },
+      "datePublished": "2025-10-19"
+    }
+  </script>
+
+  <link rel="stylesheet" href="css/blog.css" />
+</head>
+
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="nav-wrap">
+      <a href="index.html" class="brand" aria-label="Trang web của tôi">
+        <span class="logo">IT</span>
+        <span>Trang web của tôi</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Menu"
+        onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+
+      <nav class="nav-links">
+        <a href="index.html">Trang chủ</a>
+        <a href="du-an.html">Dự án</a>
+        <a href="lo-trinh-hoc.html">Lộ trình học</a>
+        <a href="bai-chia-se.html" aria-current="page" class="active">Bài chia sẻ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== LAYOUT ===== -->
+  <main class="wrap">
+    <div class="page-grid">
+      <!-- ===== ARTICLE ===== -->
+      <div class="article-container">
+        <article id="article">
+          <span class="kicker">Khám Phá WebSocket trong Java</span>
+          <h1>Java và Công Nghệ WebSocket</h1>
+
+          <p class="lead">
+            WebSocket là một giao thức mạnh mẽ giúp truyền tải dữ liệu thời gian thực giữa client và server. Trong bài
+            viết này, chúng ta sẽ tìm hiểu cách Java hỗ trợ WebSocket và cách sử dụng WebSocket trong các ứng dụng thời
+            gian thực như chat trực tuyến, thông báo, và các trò chơi trực tuyến.
+          </p>
+
+          <!-- TOC trong bài -->
+          <div class="card">
+            <strong>Nội dung</strong>
+            <ul class="toc">
+              <li><a href="#gioi-thieu">1) Giới thiệu về WebSocket</a></li>
+              <li><a href="#loi-ich-cua-websocket">2) Lợi ích của WebSocket trong các ứng dụng thời gian thực</a></li>
+              <li><a href="#websocket-trong-java">3) Cách sử dụng WebSocket trong Java</a></li>
+              <li><a href="#ung-dung-websocket">4) Ứng dụng thực tế của WebSocket trong Java</a></li>
+            </ul>
+          </div>
+
+          <section id="gioi-thieu">
+            <h2>1) Giới thiệu về WebSocket</h2>
+            <div class="card">
+              <p>
+                WebSocket là một giao thức mạng hai chiều cho phép thiết lập kết nối liên tục giữa client và server.
+                Khác với HTTP, WebSocket duy trì một kết nối mở, cho phép cả client và server gửi và nhận dữ liệu bất cứ
+                lúc nào mà không cần phải thiết lập lại kết nối.
+              </p>
+              <p>
+                WebSocket rất hữu ích cho các ứng dụng yêu cầu cập nhật dữ liệu liên tục như ứng dụng trò chuyện trực
+                tuyến, thông báo push, hoặc game trực tuyến. WebSocket giảm thiểu độ trễ và tăng hiệu suất khi so với
+                các giao thức HTTP truyền thống.
+              </p>
+            </div>
+          </section>
+
+          <section id="loi-ich-cua-websocket">
+            <h2>2) Lợi ích của WebSocket trong các ứng dụng thời gian thực</h2>
+            <div class="card">
+              <p>WebSocket mang lại nhiều lợi ích đáng kể cho các ứng dụng yêu cầu truyền tải dữ liệu thời gian thực:
+              </p>
+              <ul>
+                <li><b>Truyền tải dữ liệu hai chiều:</b> WebSocket cho phép cả client và server có thể gửi và nhận dữ
+                  liệu mà không cần phải chờ đợi từ một phía.</li>
+                <li><b>Giảm độ trễ:</b> WebSocket duy trì một kết nối mở, giúp giảm thiểu độ trễ trong việc truyền tải
+                  dữ liệu.</li>
+                <li><b>Tiết kiệm tài nguyên:</b> WebSocket giảm thiểu việc tạo và phá vỡ kết nối liên tục, điều này giúp
+                  tiết kiệm tài nguyên hệ thống và băng thông mạng.</li>
+                <li><b>Cập nhật dữ liệu thời gian thực:</b> WebSocket là lựa chọn lý tưởng cho các ứng dụng cần nhận dữ
+                  liệu cập nhật liên tục, chẳng hạn như trò chơi, ứng dụng nhắn tin, hoặc thông báo trực tuyến.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section id="websocket-trong-java">
+            <h2>3) Cách sử dụng WebSocket trong Java</h2>
+            <div class="card">
+              <p>Java hỗ trợ WebSocket thông qua API WebSocket của Java EE (Enterprise Edition). Bạn có thể dễ dàng
+                triển khai WebSocket trong ứng dụng Java sử dụng thư viện <code>javax.websocket</code>.</p>
+              <p>Ví dụ dưới đây cho thấy cách xây dựng một WebSocket server trong Java:</p>
+              <pre><code>import javax.websocket.*;
+import javax.websocket.server.ServerEndpoint;
+
+@ServerEndpoint("/chat")
+public class ChatEndpoint {
+    @OnOpen
+    public void onOpen(Session session) {
+        System.out.println("Client connected: " + session.getId());
+    }
+
+    @OnMessage
+    public void onMessage(String message, Session session) {
+        System.out.println("Received message: " + message);
+        session.getAsyncRemote().sendText("Echo: " + message);
+    }
+
+    @OnClose
+    public void onClose(Session session) {
+        System.out.println("Client disconnected: " + session.getId());
+    }
+}</code></pre>
+              <p>
+                Trong ví dụ trên, chúng ta đã tạo một WebSocket endpoint đơn giản với các phương thức:
+                - <code>@OnOpen</code>: Xử lý khi có client kết nối.
+                - <code>@OnMessage</code>: Xử lý khi nhận được tin nhắn từ client.
+                - <code>@OnClose</code>: Xử lý khi client ngắt kết nối.
+              </p>
+              <p>Để sử dụng WebSocket trong ứng dụng Java, bạn cần cấu hình server để hỗ trợ WebSocket (ví dụ: Tomcat,
+                Jetty). Sau khi kết nối, client có thể gửi và nhận các tin nhắn qua kết nối WebSocket.</p>
+            </div>
+          </section>
+
+          <section id="ung-dung-websocket">
+            <h2>4) Ứng dụng thực tế của WebSocket trong Java</h2>
+            <div class="card">
+              <p>WebSocket được sử dụng trong nhiều ứng dụng thực tế để cung cấp khả năng giao tiếp thời gian thực:</p>
+              <ul>
+                <li><b>Ứng dụng chat trực tuyến:</b> WebSocket cho phép người dùng giao tiếp với nhau trong thời gian
+                  thực mà không gặp phải độ trễ.</li>
+                <li><b>Ứng dụng thông báo:</b> WebSocket được sử dụng trong các ứng dụng web để gửi thông báo trực tiếp
+                  đến người dùng mà không cần phải tải lại trang.</li>
+                <li><b>Game trực tuyến:</b> WebSocket giúp truyền tải dữ liệu giữa các máy chủ và client, hỗ trợ chơi
+                  game nhiều người một cách mượt mà.</li>
+                <li><b>Cập nhật dữ liệu tài chính:</b> WebSocket có thể được sử dụng để cung cấp cập nhật thị trường
+                  chứng khoán, tỷ giá tiền tệ trực tiếp cho người dùng.</li>
+              </ul>
+            </div>
+          </section>
+
+        </article>
+      </div>
+
+      <!-- ===== SIDEBAR ===== -->
+      <aside class="toc-side">
+        <div class="toc-box">
+          <div class="toc-title">Nội dung bài viết</div>
+          <nav id="toc"></nav>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- ===== Related ===== -->
+
+  <section class="related-articles compact">
+    <h2>Đề xuất bài viết khác</h2>
+
+    <div class="related-card">
+      <a href="Java-8.html" class="related-card-link">
+        <img src="images\image.png" alt="Java" class="related-card-img">
+        <h3>Java 8: Những Tính Năng Mới Quan Trọng</h3>
+      </a>
+    </div>
+
+    <div class="related-card">
+      <a href="OOP.html" class="related-card-link">
+        <img src="images\tải xuống (1).jpeg" alt="OOP in Java" class="related-card-img">
+        <h3>Lập Trình Hướng Đối Tượng trong Java</h3>
+      </a>
+    </div>
+
+    <div class="related-card">
+      <a href="Gioi-Thieu-JavaScript.html" class="related-card-link">
+        <img
+          src="data:image/jpeg;base64,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"
+          alt="Giới Thiệu JavaScript" class="related-card-img">
+        <h3>Giới Thiệu JavaScript</h3>
+      </a>
+    </div>
+  </section>
+
+
+
+  <!-- Chỉ giữ blog.js cho TOC/scroll -->
+  <script src="js/blog.js"></script>
+</body>
+
+</html>

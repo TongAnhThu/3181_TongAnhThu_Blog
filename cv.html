@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CV – Tống Anh Thư</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/cv.css">
+    <style>
+        /* --- Sidebar cố định (TOC) trái, nội dung phải --- */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto;
+            color: #0f172a;
+            background: #f7fbfc;
+        }
+
+        .resume {
+            padding-left: 280px;
+        }
+
+        .sidebar {
+            position: fixed;
+            inset: 0 auto 0 0;
+            width: 280px;
+            height: 100vh;
+            overflow: auto;
+            background: #ecf6f7;
+            border-right: 1px solid #d6e7ea;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .sidebar .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .sidebar .avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+        }
+
+        .sidebar .name {
+            font-weight: 700;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .toc .sb-title {
+            font-weight: 700;
+            letter-spacing: .4px;
+            font-size: 13px;
+            color: #0b3b43;
+            background: #d9eff0;
+            padding: 8px 10px;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 8px 0 10px;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .toc-list a {
+            display: block;
+            padding: 8px 10px;
+            border-radius: 8px;
+            color: #0f172a;
+            text-decoration: none;
+            border: 1px solid transparent;
+        }
+
+        .toc-list a:hover {
+            background: #e9f8f4;
+            border-color: #c7eee5;
+        }
+
+        .toc-list a.active {
+            background: #dff3f1;
+            border-color: #bfe6dd;
+            font-weight: 600;
+        }
+
+        .main {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 28px 20px 60px;
+        }
+
+        header .name {
+            font-size: clamp(24px, 3.6vw, 34px);
+            margin: 0 0 6px;
+        }
+
+        .headline {
+            margin: 0 0 10px;
+            color: #334155;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .chip {
+            font-size: 12px;
+            background: #e6f8f1;
+            color: #046c4e;
+            border: 1px solid #bfe6d6;
+            padding: 6px 10px;
+            border-radius: 999px;
+        }
+
+        .hr {
+            height: 1px;
+            background: #e2ecee;
+            margin: 12px 0 18px;
+        }
+
+        .section {
+            scroll-margin-top: 16px;
+        }
+
+        .section h2 {
+            margin: 8px 0 10px;
+            font-size: clamp(18px, 2.5vw, 22px);
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #e5eef0;
+            border-radius: 12px;
+            padding: 14px 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
+        }
+
+        .bullets {
+            margin: 10px 0 0 20px;
+        }
+
+        .bullets li {
+            margin: 6px 0;
+        }
+
+        .two-cols {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 6px 16px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .role {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 6px 10px;
+            align-items: baseline;
+            margin-bottom: 6px;
+        }
+
+        .position {
+            font-weight: 600;
+        }
+
+        .badge {
+            background: #eef7ff;
+            border: 1px solid #cfe6ff;
+            color: #0a4b78;
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-size: 12px;
+            display: inline-block;
+        }
+
+        .period,
+        .place,
+        .muted {
+            color: #475569;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .resume {
+                padding-left: 0;
+            }
+
+            .sidebar {
+                position: static;
+                width: auto;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid #d6e7ea;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- SIDEBAR: MỤC LỤC CỐ ĐỊNH -->
+<aside class="sidebar">
+    <div class="brand">
+        <img class="avatar" src="images\489132172_3966188140318000_4745294906200934616_n.jpg" alt="Ảnh hồ sơ của Tống Anh Thư">
+        <div>
+            <p class="name">Tống Anh Thư</p>
+            <div style="font-size:12px;color:#3b5b62">Hệ thống thông tin • Backend .NET • BI/ETL</div>
+        </div>
+    </div>
+
+    <nav class="toc">
+        <div class="sb-title">MỤC LỤC</div>
+        <ul class="toc-list">
+            <li><a href="#summary">Tóm tắt</a></li>
+            <li><a href="#achievements">Thành tựu</a></li>
+            <li><a href="#skills">Kỹ năng</a></li>
+            <li><a href="#projects">Dự án</a></li>
+            <li><a href="#education">Giáo dục</a></li>
+            <li><a href="#certs">Chứng chỉ</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+            
+        </ul>
+        <a href="index.html">Quay lại</a>
+    </nav>
+</aside>
+
+
+        <!-- MAIN CONTENT -->
+        <section class="main">
+            <header>
+                <h1 class="name">Tống Anh Thư</h1>
+                <p class="headline">Sinh viên năm cuối CNTT  – Phân tích hệ thống • CSDL/ETL •
+                    Backend .NET</p>
+                <div class="chips">
+                    <span class="chip">Hệ thống thông tin</span>
+                    <span class="chip">Phân tích hệ thống </span>
+                    <span class="chip">CSDL/ETL • Power BI</span>
+                    <span class="chip">Backend .NET</span>
+                </div>
+                <div class="hr"></div>
+            </header>
+
+            <section class="section" id="summary">
+                <h2>Tóm tắt</h2>
+                <div class="card">
+                    <ul class="bullets">
+                        <li>Thiết kế <strong>CSDL</strong> và mô hình dữ liệu (dimensional)</li>
+                        <li>Xây <strong>ETL</strong>, làm sạch dữ liệu</li>
+                        <li>Phát triển <strong>RESTful .NET</strong></li>
+                        <li>Viết tài liệu: <strong>Use case, Sequence, SRS/UAT</strong></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section" id="achievements">
+                <h2>Thành tựu</h2>
+                <article class="card">
+                    <ul class="bullets">
+                        <li><strong>Đặt vé concert</strong>: luồng đặt vé, giữ chỗ, chống “ghế lẻ”, thanh toán online
+                            (redirect + callback), kiểm thử end-to-end.</li>
+                        <li><strong>Quản lý sinh viên</strong>: hồ sơ SV, lớp-môn-khoa, điểm; phân quyền
+                            Student/GV/Admin; API RESTful, truy vấn tối ưu.</li>
+                        <li><strong>Quản lý dữ liệu hành chính</strong>: <strong>star schema</strong>, <strong>SCD
+                                2</strong>, ETL chuẩn hoá mã DVHC; báo cáo/Power BI.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="section" id="skills">
+                <h2>Kỹ năng</h2>
+                <article class="card">
+                    <ul class="two-cols">
+                        <li><strong>Ngôn ngữ:</strong> C#, Java, Python, SQL</li>
+                        <li><strong>Backend:</strong> ASP.NET Core, EF Core, REST API</li>
+                        <li><strong>Dữ liệu:</strong> SQL Server, SSIS/ETL, star schema, SCD 2</li>
+                        <li><strong>Phân tích:</strong> Power BI, DAX, Data Modeling</li>
+                        <li><strong>Nghiên cứu:</strong> HUOPM-ACO / HUIM-ACO (định hướng)</li>
+                        <li><strong>Công cụ:</strong> Git/GitHub, Postman, Swagger, Stata (panel cơ bản)</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="section" id="projects">
+                <h2>Dự án</h2>
+
+                <article class="card">
+                    <div class="role">
+                        <div class="position">ConcertTicket – Hệ thống đặt vé concert</div>
+                        <div class="company badge">ASP.NET Core • SQL Server</div>
+                        <div class="period">2025</div>
+                    </div>
+                    <ul class="bullets">
+                        <li>Thiết kế luồng đặt vé, quy tắc “không để ghế lẻ”, lưu tạm & thanh toán online.</li>
+                        <li>API <code>/api/hoadon/create</code>, callback thanh toán; tối ưu truy vấn ghế (EF Core).
+                        </li>
+                        <li>Test case end-to-end, giảm lỗi chọn ghế không hợp lệ.</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <div class="role">
+                        <div class="position">Quản lý sinh viên</div>
+                        <div class="company badge">ASP.NET Core MVC • SQL Server</div>
+                        <div class="period">2025</div>
+                    </div>
+                    <ul class="bullets">
+                        <li>Hồ sơ SV, lớp-môn-khoa, điểm; phân quyền Student/GV/Admin.</li>
+                        <li>CRUD, tìm kiếm, và báo cáo; tối ưu hoá truy vấn.</li>
+                        <li>API RESTful cho tích hợp hệ thống.</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <div class="role">
+                        <div class="position">Kho dữ liệu hành chính sau sáp nhập</div>
+                        <div class="company badge">Star schema • SCD 2 • SSIS/ETL • Power BI</div>
+                        <div class="period">2025</div>
+                    </div>
+                    <ul class="bullets">
+                        <li>Dimension thời gian & DVHC theo SCD 2; đối soát toàn vẹn.</li>
+                        <li>ETL hợp nhất 3 nguồn; chuẩn hoá mã DVHC.</li>
+                        <li>Dashboard theo dõi dân số, giáo dục, doanh nghiệp.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="section" id="education">
+                <h2>Giáo dục</h2>
+                <article class="card">
+                    <div class="role">
+                        <div class="position">HUTECH – Công nghệ Thông tin</div>
+                        <div class="company badge">Hệ thống thông tin (sinh viên năm cuối)</div>
+                        <div class="place muted">TP.HCM</div>
+                        <div class="period">Dự kiến 2026</div>
+                    </div>
+                    <div class="muted">Môn nổi bật: Phân tích & Thiết kế HTTT, CSDL, Kho dữ liệu, FinTech.</div>
+                </article>
+            </section>
+
+            <section class="section" id="certs">
+                <section class="section" id="certs">
+                    <section class="section" id="certs">
+                        <h2>Chứng chỉ</h2>
+                        <article class="card">
+                            <ul class="certs">
+                                <!-- JS Essentials 1 -->
+                                <li class="cert">
+                                    <details>
+                                        <summary>JavaScript Essentials 1 – Cisco</summary>
+                                        <div class="cert-panel">
+                                            <img src="images/z7133036431011_db5159a6e89c5e72052e849c38b70c18.jpg"
+                                                alt="JavaScript Essentials 1 – Cisco Networking Academy" loading="lazy">
+                                            <div>
+                                                <div class="issuer">Cisco • Issued Sep 23, 2025</div>
+                                                <a class="view" href="https://www.credly.com/badges/JS1_PUBLIC_URL"
+                                                    target="_blank" rel="noopener">Xem badge trên Credly</a>
+                                            </div>
+                                        </div>
+                                    </details>
+                                </li>
+
+                                <!-- JS Essentials 2 -->
+                                <li class="cert">
+                                    <details>
+                                        <summary>JavaScript Essentials 2 – Cisco</summary>
+                                        <div class="cert-panel">
+                                            <img src="images/z7133032029366_af3846277aad74bee468dcf2ae1ba584.jpg"
+                                                alt="JavaScript Essentials 2 – Cisco Networking Academy" loading="lazy">
+                                            <div>
+                                                <div class="issuer">Cisco • Issued Oct 5, 2025</div>
+                                                <a class="view" href="https://www.credly.com/badges/JS2_PUBLIC_URL"
+                                                    target="_blank" rel="noopener">Xem badge trên Credly</a>
+                                            </div>
+                                        </div>
+                                    </details>
+                                </li>
+
+                                <!-- Networking Basics -->
+                                <li class="cert">
+                                    <details>
+                                        <summary>Networking Basics – Cisco</summary>
+                                        <div class="cert-panel">
+                                            <img src="images/z7133028052679_79dea506648a52906ed673f3ac0c3169.jpg"
+                                                alt="Networking Basics – Cisco Networking Academy" loading="lazy">
+                                            <div>
+                                                <div class="issuer">Cisco • Issued Sep 12, 2025</div>
+                                                <a class="view"
+                                                    href="https://www.credly.com/badges/NETWORKING_PUBLIC_URL"
+                                                    target="_blank" rel="noopener">Xem badge trên Credly</a>
+                                            </div>
+                                        </div>
+                                    </details>
+                                </li>
+                            </ul>
+                        </article>
+                    </section>
+
+                </section>
+
+                <section class="section" id="contact">
+                    <h2>Liên hệ</h2>
+                    <article class="card">
+                        <ul class="bullets">
+                            <li>☎ <a href="tel:+84394937179">0394937179</a></li>
+                            <li>✉ <a href="mailto:tongthu1010@gmail.com">tongthu1010@gmail.com</a></li>
+                            <li>📍 TP. Hồ Chí Minh, Việt Nam</li>
+                            <li>🌐 <a href="#" target="_blank" rel="noopener">github.com/username</a></li>
+                        </ul>
+                    </article>
+                </section>
+            </section>
+    </main>
+
+    <script>
+        // Kích hoạt link mục lục theo vùng nhìn
+        const links = document.querySelectorAll('.toc-list a');
+        const map = new Map([...links].map(a => [a.getAttribute('href').slice(1), a]));
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    const id = e.target.getAttribute('id');
+                    links.forEach(l => l.classList.remove('active'));
+                    const link = map.get(id); if (link) link.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-30% 0px -60% 0px', threshold: 0.01 });
+
+        document.querySelectorAll('section.section[id]').forEach(sec => obs.observe(sec));
+
+        // Smooth scroll + cập nhật URL hash gọn gàng
+        links.forEach(a => {
+            a.addEventListener('click', ev => {
+                ev.preventDefault();
+                const to = document.querySelector(a.getAttribute('href'));
+                to?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                history.replaceState(null, '', a.getAttribute('href'));
+            });
+        });
+    </script>
+</body>
+
+</html>

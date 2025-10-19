@@ -1,0 +1,173 @@
+/* ===== CV THEME synced with TemplateMo colors ===== */
+:root{
+  --cv-primary:   var(--primary-color, #13547a);
+  --cv-secondary: var(--secondary-color, #80d0c7);
+  --cv-bg:        var(--white-color, #ffffff);
+  --cv-ink:       var(--dark-color, #0f172a);
+  --cv-muted:     var(--p-color, #717275);
+  --cv-section:   var(--section-bg-color, #f0f8ff);
+  --cv-border:    rgba(15,23,42,.12);
+  --cv-tint:      rgba(128,208,199,.12);
+}
+
+*{ box-sizing:border-box }
+
+html,body{
+  margin:0;
+  background:var(--cv-bg);
+  color:var(--cv-ink);
+  font-family: var(--body-font-family, 'Open Sans'), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height:1.55;
+}
+a{ color:inherit; text-decoration:none }
+
+/* ===== OVERRIDES for TOC layout (sidebar cố định) ===== */
+.resume{
+  /* thay vì 2-cột grid, dùng padding-left để chừa chỗ cho sidebar cố định */
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 280px;        /* khớp với width sidebar */
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Sidebar = mục lục cố định */
+.sidebar{
+  position: fixed;
+  inset: 0 auto 0 0;          /* top:0; left:0; bottom:0 */
+  width: 280px;
+  overflow: auto;
+  background: linear-gradient(180deg, rgba(19,84,122,.08), rgba(128,208,199,.06) 60%, #fff);
+  border-right: 1px solid var(--cv-border);
+  padding: 20px;
+}
+
+.brand{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.avatar{
+  width:56px; height:56px; border-radius:50%; object-fit:cover;
+  border:3px solid #fff; box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+.name-mini{ margin:0; font-weight:800; font-size:14.5px; color:#0b3b43; }
+.role-mini{ font-size:12px; color:#40626b }
+
+/* TOC */
+.toc .sb-title{
+  font-family: var(--title-font-family, 'Montserrat'), Inter, sans-serif;
+  font-weight:700; font-size:13px; letter-spacing:.4px; text-transform:uppercase;
+  color: var(--cv-primary); background: rgba(128,208,199,.18);
+  padding:6px 10px; border-radius:8px; display:inline-block; margin: 8px 0 10px;
+}
+.toc-list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:6px; }
+.toc-list a{
+  display:block; padding:8px 10px; border-radius:8px;
+  border:1px solid transparent; color:#0f172a;
+}
+.toc-list a:hover{ background:#e9f8f4; border-color:#c7eee5; }
+.toc-list a.active{ background:#dff3f1; border-color:#bfe6dd; font-weight:600; }
+
+/* ===== Main content ===== */
+.main{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 26px 28px 40px;
+}
+
+.name{
+  font-family: var(--title-font-family, 'Montserrat'), Inter, sans-serif;
+  font-size: clamp(24px, 3.6vw, 34px);
+  line-height:1.2; margin:0 0 6px; font-weight:800; color: var(--cv-primary);
+}
+.headline{ margin:0 0 10px; color:#334155; }
+
+.chips{ display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 6px; }
+.chip{
+  font-size:12.5px; font-weight:700; color:#083344;
+  background: var(--cv-section); border:1px dashed var(--cv-secondary);
+  padding:6px 10px; border-radius:999px;
+}
+
+.hr{ height:1px; background:var(--cv-border); margin:12px 0 18px; }
+
+.section{ margin-top:22px; scroll-margin-top: 16px; }
+.section h2{
+  font-family: var(--title-font-family, 'Montserrat'), Inter, sans-serif;
+  font-size:14px; text-transform:uppercase; letter-spacing:.5px;
+  margin:0 0 10px; color: var(--cv-primary); font-weight:800; display:flex; gap:8px; align-items:center;
+}
+.section h2::before{
+  content:""; width:10px; height:10px; border-radius:50%;
+  background: var(--cv-secondary); box-shadow:0 0 0 4px rgba(128,208,199,.25);
+}
+
+.card{
+  border:1px solid var(--cv-border); border-radius:12px;
+  padding:14px 14px 6px; margin-bottom:12px; background:#fff;
+}
+
+.role{ display:flex; flex-wrap:wrap; gap:8px; align-items:baseline; }
+.role .position{ font-weight:700 }
+.role .company{ color: var(--cv-primary) }
+.role .place{ color: var(--cv-muted) }
+.period{ margin-left:auto; color: var(--cv-muted); font-weight:600 }
+
+.bullets{ margin:10px 0 6px; padding-left:0; list-style:none; display:grid; gap:8px; }
+.bullets li{ position:relative; padding-left:22px }
+.bullets li::before{
+  content:""; position:absolute; left:0; top:.45em; width:10px; height:10px; border-radius:3px; background: var(--cv-primary);
+}
+
+.badge{
+  display:inline-block; background: rgba(128,208,199,.22);
+  color: var(--cv-primary); font-weight:700; padding:2px 8px; border-radius:999px; font-size:12px; margin-left:8px;
+}
+
+/* Danh sách/biểu tượng phụ (nếu dùng trong phần Liên hệ nằm bên phải) */
+.list{ list-style:none; padding:0; margin:0; display:grid; gap:8px; }
+.list li{ display:flex; gap:10px; align-items:flex-start }
+.icon{
+  width:18px; height:18px; flex:0 0 18px; border-radius:50%;
+  display:inline-grid; place-items:center; background: var(--cv-primary);
+  color:#fff; font-size:12px; line-height:1; margin-top:2px;
+}
+.muted{ color: var(--cv-muted) }
+
+/* ===== Responsive ===== */
+@media (max-width: 900px){
+  .resume{ padding-left:0; }
+  .sidebar{
+    position: static; width:auto; height:auto; overflow:visible;
+    border-right:none; border-bottom:1px solid var(--cv-border);
+  }
+  .period{ width:100%; margin:6px 0 0 }
+}
+
+/* ===== Print (A4) ===== */
+@page{ size:A4; margin:12mm }
+@media print{
+  html,body{ background:#fff; -webkit-print-color-adjust: exact; print-color-adjust: exact }
+  .resume{ padding-left:0; box-shadow:none; margin:0; border:0 }
+  .sidebar{ position: static; width:auto; border:0; background:#fff }
+  .chip{ border-color: var(--cv-primary) }
+}
+
+/* --- Nút quay lại Trang chủ trong Sidebar --- */
+.back-to-home {
+    position: absolute;
+    top: 20px; /* Điều chỉnh vị trí của nút */
+    left: 20px; /* Điều chỉnh vị trí của nút */
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 999;
+    width: calc(100% - 40px); /* Nút có chiều rộng đầy đủ */
+    margin-top: 10px; /* Khoảng cách với ảnh hồ sơ */
+}
+
+.back-to-home:hover {
+    background-color: #0056b3;
+}

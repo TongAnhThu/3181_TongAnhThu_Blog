@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kiến Thức Cơ Bản Về Java – Bắt Đầu Với Những Khái Niệm Đơn Giản</title>
+    <meta name="description"
+        content="Tìm hiểu về Java từ những khái niệm cơ bản nhất như cấu trúc chương trình, các kiểu dữ liệu cơ bản, vòng lặp và câu lệnh điều kiện. Hướng dẫn lập trình viên mới bắt đầu với Java." />
+
+    <!-- SEO / Social -->
+    <meta property="og:title" content="Kiến Thức Cơ Bản Về Java – Bắt Đầu Với Những Khái Niệm Đơn Giản">
+    <meta property="og:description"
+        content="Tìm hiểu về Java từ những khái niệm cơ bản nhất như cấu trúc chương trình, các kiểu dữ liệu cơ bản, vòng lặp và câu lệnh điều kiện. Hướng dẫn lập trình viên mới bắt đầu với Java.">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+        {
+            "@context":"https://schema.org",
+            "@type":"Article",
+            "headline":"Kiến Thức Cơ Bản Về Java – Bắt Đầu Với Những Khái Niệm Đơn Giản",
+            "inLanguage":"vi",
+            "author":{"@type":"Person","name":"Tống Anh Thư"},
+            "datePublished":"2025-10-19"
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/blog.css" />
+</head>
+
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar">
+        <div class="nav-wrap">
+            <a href="index.html" class="brand" aria-label="Trang web của tôi">
+                <span class="logo">IT</span>
+                <span>Trang web của tôi</span>
+            </a>
+
+            <button class="nav-toggle" aria-label="Menu"
+                onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="du-an.html">Dự án</a>
+                <a href="lo-trinh-hoc.html">Lộ trình học</a>
+                <a href="bai-chia-se.html" aria-current="page" class="active">Bài chia sẻ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== LAYOUT ===== -->
+    <main class="wrap">
+        <div class="page-grid">
+            <!-- ===== ARTICLE ===== -->
+            <div class="article-container">
+                <article id="article">
+                    <span class="kicker">Series Java cơ bản → nâng cao</span>
+                    <h1>Kiến Thức Cơ Bản Về Java – Bắt Đầu Với Những Khái Niệm Đơn Giản</h1>
+
+                    <p class="lead">
+                        Java là một ngôn ngữ lập trình hướng đối tượng mạnh mẽ và phổ biến, được phát triển bởi Sun
+                        Microsystems vào năm 1995. Bài viết này sẽ giúp bạn hiểu về Java từ những khái niệm cơ bản nhất
+                        như cấu trúc chương trình, các kiểu dữ liệu cơ bản, câu lệnh điều kiện và vòng lặp.
+                    </p>
+
+                    <div class="card">
+                        <strong>Nội dung</strong>
+                        <ul class="toc">
+                            <li><a href="#gioi-thieu">1) Giới thiệu về Java</a></li>
+                            <li><a href="#cau-truc-chuong-trinh">2) Cấu trúc cơ bản của một chương trình Java</a></li>
+                            <li><a href="#cac-loai-du-lieu">3) Các kiểu dữ liệu cơ bản trong Java</a></li>
+                            <li><a href="#dieu-kien-vong-lap">4) Câu lệnh điều kiện và vòng lặp</a></li>
+                            <li><a href="#cac-lop-va-doi-tuong">5) Lớp và đối tượng trong Java</a></li>
+                        </ul>
+                    </div>
+
+                    <section id="gioi-thieu">
+                        <h2>1) Giới thiệu về Java</h2>
+                        <div class="card">
+                            <p>
+                                Java là một ngôn ngữ lập trình hướng đối tượng, độc lập nền tảng, nghĩa là bạn có thể
+                                viết mã Java một lần và chạy ở bất kỳ hệ điều hành nào hỗ trợ Java. Java sử dụng **JVM
+                                (Java Virtual Machine)** để thực thi mã. Đây là điểm khác biệt lớn so với nhiều ngôn ngữ
+                                khác.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section id="cau-truc-chuong-trinh">
+                        <h2>2) Cấu trúc cơ bản của một chương trình Java</h2>
+                        <div class="card">
+                            <p>Chương trình Java cơ bản gồm ba phần chính: Lớp, Phương thức, và Dòng lệnh. Cấu trúc đơn
+                                giản nhất của một chương trình Java trông như sau:</p>
+                            <pre><code class="language-java">public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, Java!");
+    }
+}</code></pre>
+                            <p>
+                                - **public class HelloWorld**: Đây là khai báo lớp của chương trình.<br>
+                                - **public static void main(String[] args)**: Phương thức main, nơi chương trình bắt đầu
+                                thực thi.<br>
+                                - **System.out.println("Hello, Java!");**: In ra màn hình dòng chữ "Hello, Java!".
+                            </p>
+                        </div>
+                    </section>
+
+                    <section id="cac-loai-du-lieu">
+                        <h2>3) Các kiểu dữ liệu cơ bản trong Java</h2>
+                        <div class="card">
+                            <p>Java có 8 kiểu dữ liệu cơ bản: `byte`, `short`, `int`, `long`, `float`, `double`, `char`,
+                                và `boolean`. Dưới đây là một số ví dụ:</p>
+                            <pre><code class="language-java">int age = 25;
+float price = 19.99f;
+char grade = 'A';
+boolean isJavaFun = true;</code></pre>
+                        </div>
+                    </section>
+
+                    <section id="dieu-kien-vong-lap">
+                        <h2>4) Câu lệnh điều kiện và vòng lặp</h2>
+                        <div class="card">
+                            <p>Câu lệnh điều kiện giúp kiểm tra một biểu thức và thực hiện hành động dựa trên kết quả.
+                                Ví dụ:</p>
+                            <pre><code class="language-java">if (age > 18) {
+    System.out.println("Bạn là người trưởng thành.");
+} else {
+    System.out.println("Bạn chưa đủ tuổi.");
+}</code></pre>
+                            <p>Vòng lặp `for` dùng để lặp qua một đoạn mã nhiều lần:</p>
+                            <pre><code class="language-java">for (int i = 0; i < 5; i++) {
+    System.out.println(i);
+}</code></pre>
+                        </div>
+                    </section>
+
+                    <section id="cac-lop-va-doi-tuong">
+                        <h2>5) Lớp và đối tượng trong Java</h2>
+                        <div class="card">
+                            <p>Trong Java, lớp (class) là một khuôn mẫu dùng để tạo đối tượng. Mỗi đối tượng có các
+                                thuộc tính (fields) và phương thức (methods) riêng. Ví dụ:</p>
+                            <pre><code class="language-java">public class Car {
+    String color;
+    int year;
+
+    public void drive() {
+        System.out.println("The car is driving.");
+    }
+}</code></pre>
+                            <p>Để sử dụng lớp này, bạn tạo đối tượng (object) từ lớp `Car`:</p>
+                            <pre><code class="language-java">Car myCar = new Car();
+myCar.color = "Red";
+myCar.year = 2020;
+myCar.drive();</code></pre>
+                        </div>
+                    </section>
+                </article>
+            </div>
+
+            <!-- ===== SIDEBAR ===== -->
+            <aside class="toc-side">
+                <div class="toc-box">
+                    <div class="toc-title">Nội dung bài viết</div>
+                    <nav id="toc"></nav>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+<!-- ===== Back Button ===== -->
+<section class="back-btn-container">
+    <a href="javascript:history.back()" class="back-btn">← Trở về</a>
+</section>
+
+<!-- ===== Related Articles ===== -->
+<section class="related-articles compact">
+    <h2>Đề xuất bài viết khác</h2>
+    <div class="related-card">
+        <a href="OOP.html" class="related-card-link">
+            <img src="images\tải xuống (2).jpeg" alt="OOP in Java" class="related-card-img">
+            <h3>Lập Trình Hướng Đối Tượng trong Java</h3>
+        </a>
+    </div>
+
+    <!-- Fourth Related Article -->
+    <div class="related-card">
+        <a href="test-bai-1.html" class="related-card-link">
+            <img src="images\images.jpeg" alt="Test bài" class="related-card-img">
+            <h3>Kiểm thử trong Java</h3>
+        </a>
+    </div>
+</section>
+    <!-- ===== SCRIPTS ===== -->
+
+    <script src="js/blog.js"></script>
+</body>
+
+</html>

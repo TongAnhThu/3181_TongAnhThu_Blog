@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Java 8: Những Tính Năng Mới Quan Trọng</title>
+    <meta name="description"
+        content="Tổng hợp các tính năng đáng chú ý của Java 8: Lambda, Stream API, Default Methods, Optional và Date/Time API — kèm ví dụ ngắn gọn, dễ hiểu." />
+    <link rel="stylesheet" href="css/blog.css" />
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar">
+        <div class="nav-wrap">
+            <a href="index.html" class="brand" aria-label="Blog của tôi">
+                <span class="logo">IT</span>
+                <span>Blog Của Tôi</span>
+            </a>
+
+            <nav class="nav-links" aria-label="Điều hướng chính">
+                <a href="index.html">Trang Chủ</a>
+                <a href="du-an.html">Dự án</a>
+                <a href="lo-trinh-hoc.html">Lộ trình học</a>
+                <a href="bai-chia-se.html" class="active" aria-current="page">Bài chia sẻ</a>
+            </nav>
+
+            <button class="nav-toggle" aria-label="Mở menu" aria-expanded="false"
+                onclick="const l=document.querySelector('.nav-links');const o=l.classList.toggle('open');this.setAttribute('aria-expanded',String(o))">☰</button>
+        </div>
+    </header>
+
+    <!-- ===== LAYOUT ===== -->
+    <main class="wrap">
+        <div class="page-grid">
+            <!-- ===== ARTICLE ===== -->
+            <div class="article-container">
+                <article id="article">
+                    <span class="kicker">Java 8 • Tính năng đáng chú ý</span>
+                    <h1>Java 8: Những Tính Năng Mới Quan Trọng</h1>
+                    <p class="lead">
+                        Java 8 mang đến bước nhảy lớn cho lập trình Java: biểu thức Lambda, Stream API, phương thức mặc
+                        định trong interface,
+                        <code>Optional</code> để xử lý <em>null</em> an toàn, và API ngày–giờ hoàn toàn mới trong gói
+                        <code>java.time</code>.
+                    </p>
+
+                    <!-- TOC trong bài -->
+                    <div class="card">
+                        <strong>Nội dung</strong>
+                        <ul class="toc">
+                            <li><a href="#lambda">1) Lambda Expressions</a></li>
+                            <li><a href="#streams">2) Stream API</a></li>
+                            <li><a href="#default-methods">3) Default Methods</a></li>
+                            <li><a href="#optional">4) Optional</a></li>
+                            <li><a href="#datetime">5) Date &amp; Time API</a></li>
+                        </ul>
+                    </div>
+
+                    <section id="lambda">
+                        <h2>1) Lambda Expressions</h2>
+                        <div class="card">
+                            <p>Lambda giúp viết hàm ngắn gọn, truyền hành vi như một giá trị và tận dụng các API chức
+                                năng.</p>
+                            <pre><code class="language-java">import java.util.Arrays;
+import java.util.List;
+
+public class LambdaDemo {
+    public static void main(String[] args) {
+        List&lt;String&gt; names = Arrays.asList("John", "Jane", "Jack");
+
+        // Lambda:
+        names.forEach(name -&gt; System.out.println(name));
+
+        // Method reference (tương đương, ngắn hơn):
+        names.forEach(System.out::println);
+    }
+}</code></pre>
+                        </div>
+                    </section>
+
+                    <section id="streams">
+                        <h2>2) Stream API</h2>
+                        <div class="card">
+                            <p>Xử lý dữ liệu theo kiểu hàm: lọc, biến đổi, gom nhóm… dễ đọc và dễ song song hóa.</p>
+                            <pre><code class="language-java">import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class StreamDemo {
+    public static void main(String[] args) {
+        List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+
+        List&lt;Integer&gt; evenSquares = numbers.stream()
+                .filter(n -&gt; n % 2 == 0)   // lọc số chẵn
+                .map(n -&gt; n * n)           // bình phương
+                .collect(Collectors.toList());
+
+        System.out.println(evenSquares);   // [4, 16, 36]
+    }
+}</code></pre>
+                            <p class="muted">Mẹo: Dùng <code>stream().parallel()</code> cẩn thận — đo trước tối ưu sau.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section id="default-methods">
+                        <h2>3) Default Methods</h2>
+                        <div class="card">
+                            <p>Interface có thể cung cấp triển khai mặc định, giúp mở rộng API mà không phá vỡ lớp đang
+                                dùng.</p>
+                            <pre><code class="language-java">interface Greeter {
+    default void greet() {
+        System.out.println("Hello from default method!");
+    }
+}
+
+class ConsoleGreeter implements Greeter { }
+
+public class DefaultMethodDemo {
+    public static void main(String[] args) {
+        new ConsoleGreeter().greet(); // dùng ngay triển khai mặc định
+    }
+}</code></pre>
+                        </div>
+                    </section>
+
+                    <section id="optional">
+                        <h2>4) Optional</h2>
+                        <div class="card">
+                            <p><code>Optional&lt;T&gt;</code> giúp diễn đạt “có thể không có giá trị”, giảm
+                                NullPointerException bằng API tường minh.</p>
+                            <pre><code class="language-java">import java.util.Optional;
+
+public class OptionalDemo {
+    static String getNameOrNull() {
+        return Math.random() &gt; 0.5 ? "Alice" : null;
+    }
+
+    public static void main(String[] args) {
+        Optional&lt;String&gt; name = Optional.ofNullable(getNameOrNull());
+
+        // Chỉ in nếu có giá trị
+        name.ifPresent(System.out::println);
+
+        // Giá trị mặc định khi rỗng
+        String safe = name.orElse("Unknown");
+
+        // Ném ngoại lệ tùy ý khi rỗng
+        // String must = name.orElseThrow(() -&gt; new IllegalStateException("No name"));
+    }
+}</code></pre>
+                            <p class="muted">Tránh lạm dụng <code>Optional.get()</code>; ưu tiên <code>orElse</code>,
+                                <code>orElseGet</code>, <code>orElseThrow</code>, <code>ifPresent</code>.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section id="datetime">
+                        <h2>5) New Date &amp; Time API (<code>java.time</code>)</h2>
+                        <div class="card">
+                            <p>API ngày–giờ mới (JSR-310) bất biến, rõ ràng và an toàn luồng, thay thế
+                                <code>java.util.Date</code>/<code>Calendar</code>.
+                            </p>
+                            <pre><code class="language-java">import java.time.*;
+
+public class TimeDemo {
+    public static void main(String[] args) {
+        LocalDate today = LocalDate.now();
+        LocalDate nextWeek = today.plusWeeks(1);
+
+        LocalDate birth = LocalDate.of(2000, 10, 1);
+        Period age = Period.between(birth, today);
+
+        ZonedDateTime nowHanoi = ZonedDateTime.now(ZoneId.of("Asia/Ho_Chi_Minh"));
+
+        System.out.println(today + " → " + nextWeek);
+        System.out.println("Age: " + age.getYears() + " years");
+        System.out.println("Hanoi: " + nowHanoi);
+    }
+}</code></pre>
+                            <p class="muted">Dùng <code>DateTimeFormatter</code> để định dạng/parse; ưu tiên
+                                <code>ZonedDateTime</code> khi cần múi giờ.
+                            </p>
+                        </div>
+                    </section>
+                </article>
+            </div>
+
+            <!-- ===== SIDEBAR TOC ===== -->
+            <aside class="toc-side">
+                <div class="toc-box">
+                    <div class="toc-title">Mục lục</div>
+                    <nav id="toc"></nav>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+
+
+    <section class="related-articles compact">
+        <h2>Đề xuất bài viết khác</h2>
+        <div class="related-card">
+            <a href="OOP.html" class="related-card-link">
+                <img src="images\tải xuống (2).jpeg" alt="OOP in Java" class="related-card-img">
+                <h3>Lập Trình Hướng Đối Tượng trong Java</h3>
+            </a>
+        </div>
+        <div class="related-card">
+            <a href="Exception.html" class="related-card-link">
+                <img src="images\tải xuống (4).jpeg" alt="Exception Handling" class="related-card-img">
+                <h3>Quản Lý Ngoại Lệ trong Java</h3>
+            </a>
+        </div>
+    </section>
+    <!-- JS: nếu bạn đã có js/blog.js để build TOC & scroll-spy -->
+    <script src="js/blog.js"></script>
+</body>
+
+</html>
+<!-- ===== FOOTER ===== -->
+<footer id="lien-he" class="wrap">
+    <div class="card">
+        <p>© 2025 Blog Của Tôi — Tất cả các quyền được bảo lưu.</p>
+    </div>
+</footer>F

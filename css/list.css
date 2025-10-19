@@ -1,0 +1,261 @@
+/* ===== Topics list => cards grid (image + excerpt) ===== */
+.topics-listing-page .list-group {
+    --tl-border: rgba(2, 6, 23, .12);
+    --tl-bg: #fff;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+    padding: 0;
+    margin: 16px 0 0;
+    border: 0;
+}
+
+.topics-listing-page .list-group-item {
+    list-style: none;
+    margin: 0;
+    border: 1px solid var(--tl-border);
+    border-radius: 12px;
+    background: var(--tl-bg);
+    padding: 0;
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+    overflow: hidden;
+}
+
+/* Anchor = card */
+.topics-listing-page .list-group-item>a {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+    padding: 12px;
+    height: 100%;
+}
+
+/* Thumbnail khung cố định, ảnh cover */
+.topics-listing-page .topic-thumb {
+    margin: 0;
+    height: clamp(130px, 20vw, 170px);
+    background: linear-gradient(180deg, #f4fafc, #eef4f6);
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.topics-listing-page .topic-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .35s ease;
+}
+
+/* Tiêu đề bài viết */
+.topics-listing-page .topic-title {
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0;
+}
+
+/* Mô tả ngắn của bài viết */
+.topics-listing-page .topic-excerpt {
+    margin: 0;
+    color: #64748b;
+    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.9em;
+}
+
+/* Nút mũi tên ở góc dưới */
+.topics-listing-page .list-group-item>a::after {
+    content: "›";
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    background: rgba(2, 6, 23, .06);
+    font-size: 18px;
+    line-height: 1;
+    opacity: .7;
+    transition: transform .15s ease, opacity .15s ease, background .15s ease;
+}
+
+/* Hover */
+.topics-listing-page .list-group-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(2, 6, 23, .12);
+    border-color: rgba(19, 84, 122, .25);
+    background: linear-gradient(0deg, rgba(128, 208, 199, .08), #fff);
+}
+
+.topics-listing-page .list-group-item:hover .topic-thumb img {
+    transform: scale(1.04);
+}
+
+.topics-listing-page .list-group-item:hover>a::after {
+    opacity: 1;
+    transform: translateX(4px);
+    background: rgba(19, 84, 122, .12);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .topics-listing-page .list-group {
+        --tl-border: rgba(255, 255, 255, .12);
+        --tl-bg: #0b1220;
+    }
+
+    .topics-listing-page .list-group-item {
+        color: #e6edf3;
+    }
+
+    .topics-listing-page .list-group-item:hover {
+        border-color: rgba(128, 208, 199, .35);
+        background: linear-gradient(0deg, rgba(128, 208, 199, .12), #0b1220);
+    }
+
+    .topics-listing-page .topic-excerpt {
+        color: #9aa6b2;
+    }
+
+    .topics-listing-page .list-group-item>a::after {
+        background: rgba(255, 255, 255, .08);
+    }
+}
+
+/* Cập nhật kiểu cho tiêu đề và badge */
+.card-header {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-bottom: 2px solid #eee;
+}
+
+/* Điều chỉnh font size cho phần mô tả */
+.card-body p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+/* Các thẻ card sẽ có khoảng cách, màu nền và bo tròn góc */
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hiệu ứng hover cho card */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Điều chỉnh cho ảnh thumbnail */
+.custom-block-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Tạo hiệu ứng phóng to ảnh khi hover */
+.card:hover .custom-block-image {
+  transform: scale(1.05);
+}
+
+/* Badge color */
+.badge.bg-design {
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 5px 12px;
+  border-radius: 15px;
+}
+
+/* Điều chỉnh padding cho các thẻ bài viết */
+.swiper-slide col-3 {
+  padding: 0.5rem;
+}
+
+/* Cập nhật kiểu cho phần tìm kiếm */
+form {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+input[type="search"] {
+  padding: 0.5rem;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+button[type="submit"] {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Điều chỉnh font cho các phần */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+h5 {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+/* Đảm bảo giao diện phù hợp với dark mode */
+@media (prefers-color-scheme: dark) {
+  .card {
+    background-color: #2c2c2c;
+    color: #fff;
+  }
+
+  .card-header {
+    background-color: #444;
+    border-bottom: 1px solid #666;
+  }
+
+  .card-body {
+    background-color: #333;
+  }
+
+  .card:hover {
+    background-color: #3a3a3a;
+  }
+
+  .badge.bg-design {
+    background-color: #81c784;
+  }
+}

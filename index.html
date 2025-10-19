@@ -1,13 +1,325 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Personal Website</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="description" content="Blog cá nhân chia sẻ học lập trình, Java/JavaScript, dự án và lộ trình học." />
+  <meta name="author" content="Tống Anh Thư" />
+  <title>Tống Anh Thư - Blog cá nhân</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-icons.css" rel="stylesheet">
+  <link href="css/templatemo-topic-listing.css" rel="stylesheet">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <!--
+    TemplateMo 590 Topic Listing
+    https://templatemo.com/tm-590-topic-listing
+  -->
 </head>
-<body>
-  <h1>Chào mừng đến với website của tôi!</h1>
-  <p>Đây là trang web cá nhân của tôi được tạo trên GitHub.</p>
+<body id="top">
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="index.html" aria-label="Trang chủ">
+      <i class="bi-journal-code" aria-hidden="true"></i>
+      <span>BLOG</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Mở menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-lg-end" id="navbarNav">
+      <ul class="navbar-nav ms-lg-0">
+        <li class="nav-item"><a class="nav-link click-scroll" href="#section_1">Home</a></li>
+        <li class="nav-item"><a class="nav-link click-scroll" href="#section_about">Giới thiệu</a></li>
+        <li class="nav-item"><a class="nav-link click-scroll" href="#section_3">Lộ trình học</a></li>
+        <li class="nav-item"><a class="nav-link click-scroll" href="#roadmap">Bài chia sẻ</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-12 mx-auto text-center">
+        <h1 class="text-dark fw-bold">Discover&nbsp;&bull;&nbsp;Learn&nbsp;&bull;&nbsp;Enjoy</h1>
+        <h6>Nơi ghi lại hành trình học và làm dự án</h6>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT ME -->
+<section class="about-me-section" id="section_about">
+  <div class="container">
+    <div class="custom-block">
+      <img class="custom-block-image" src="images/489132172_3966188140318000_4745294906200934616_n.jpg" alt="Ảnh tác giả">
+      <div class="content">
+        <p class="hello">Xin chào</p>
+        <h2>Mình là Anh Thư</h2>
+        <p>
+          Lập trình viên hướng Web. Mình thích học công nghệ mới và đẩy giới hạn bản thân qua các dự án nhỏ.
+          Blog này ghi lại kiến thức từ cơ bản đến nâng cao, kèm ví dụ thực tế khi làm sản phẩm.
+          Hy vọng giúp bạn thấy lập trình bớt “khô” và nhiều niềm vui hơn!
+        </p>
+        <a class="btn btn-primary" href="cv.html">Xem CV</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BÀI CHIA SẺ (Roadmap slider) -->
+<section id="roadmap" class="py-4">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-end mb-3">
+      <h2 class="mb-0">Một số bài tham khảo</h2>
+      <a class="btn btn-outline-primary btn-sm" href="list.html">Xem tất cả</a>
+    </div>
+
+    <div class="swiper roadmap-swiper">
+      <div class="swiper-wrapper">
+
+        <!-- 01 -->
+        <div class="swiper-slide col-3">
+          <div class="custom-block bg-white shadow-lg">
+            <a href="Gioi-thieu-Java.html">
+              <div class="d-flex">
+                <div>
+                  <h5 class="mb-2">[01] Giới thiệu về Java</h5>
+                  <p class="mb-0">Giới thiệu cơ bản về Java và các mốc lịch sử quan trọng của Java.</p>
+                </div>
+                <span class="badge bg-design rounded-pill ms-auto">01</span>
+              </div>
+              <img src="images\image.png" class="custom-block-image img-fluid" alt="Giới thiệu Java">
+            </a>
+          </div>
+        </div>
+
+        <!-- 02 -->
+        <div class="swiper-slide col-3">
+          <div class="custom-block bg-white shadow-lg">
+            <a href="java-co-ban-cu-phap.html">
+              <div class="d-flex">
+                <div>
+                  <h5 class="mb-2"> Cú pháp nền tảng Java</h5>
+                  <p class="mb-0">Khám phá cú pháp cơ bản của Java như khai báo biến, kiểu dữ liệu, toán tử và các cấu trúc điều kiện như if/switch.</p>
+                </div>
+                <span class="badge bg-design rounded-pill ms-auto">02</span>
+              </div>
+              <img src="images\tải xuống.jpeg" class="custom-block-image img-fluid" alt="Cú pháp Java">
+            </a>
+          </div>
+        </div>
+
+        <!-- 03 -->
+        <div class="swiper-slide col-3">
+          <div class="custom-block bg-white shadow-lg">
+            <a href="OOP-Java.html">
+              <div class="d-flex">
+                <div>
+                  <h5 class="mb-2"> Lập trình hướng đối tượng (OOP)</h5>
+                  <p class="mb-0">Các khái niệm cơ bản về lập trình hướng đối tượng như Class, Object, Kế thừa, Đa hình, Đóng gói.</p>
+                </div>
+                <span class="badge bg-design rounded-pill ms-auto">03</span>
+              </div>
+              <img src="images\tải xuống (2).jpeg" class="custom-block-image img-fluid" alt="OOP Java">
+            </a>
+          </div>
+        </div>
+
+        <!-- 04 -->
+        <div class="swiper-slide col-3">
+          <div class="custom-block bg-white shadow-lg">
+            <a href="Exception.html">
+              <div class="d-flex">
+                <div>
+                  <h5 class="mb-2"> Xử lý ngoại lệ trong Java</h5>
+                  <p class="mb-0">Sử dụng try-catch-finally để bắt lỗi, cùng với throw/throws để ném và xử lý ngoại lệ.</p>
+                </div>
+                <span class="badge bg-design rounded-pill ms-auto">04</span>
+              </div>
+              <img src="images\tải xuống (4).jpeg" class="custom-block-image img-fluid" alt="Xử lý ngoại lệ">
+            </a>
+          </div>
+        </div>
+
+        <!-- 05 -->
+        <div class="swiper-slide col-3">
+          <div class="custom-block bg-white shadow-lg">
+            <a href="Java-8.html">
+              <div class="d-flex">
+                <div>
+                  <h5 class="mb-2"> Java 8: Lambda & Stream</h5>
+                  <p class="mb-0">Khám phá phong cách lập trình hàm (functional style), sử dụng Stream API, Optional và Date/Time API trong Java 8.</p>
+                </div>
+                <span class="badge bg-design rounded-pill ms-auto">05</span>
+              </div>
+              <img src="images\tải xuống (1).jpeg" class="custom-block-image img-fluid" alt="Java 8 Lambda & Stream">
+            </a>
+          </div>
+        </div>
+
+        <!-- 06 -->
+        <div class="swiper-slide col-3">
+          <div class="custom-block bg-white shadow-lg">
+            <a href="Gioi-Thieu-JavaScript.html">
+              <div class="d-flex">
+                <div>
+                  <h5 class="mb-2"> Giới thiệu về JavaScript</h5>
+                  <p class="mb-0">Khám phá cú pháp cơ bản của JavaScript, bao gồm biến, hàm, DOM, và thao tác với API bằng fetch.</p>
+                </div>
+                <span class="badge bg-design rounded-pill ms-auto">06</span>
+              </div>
+              <img src="images\tải xuống10.jpeg" class="custom-block-image img-fluid" alt="Giới thiệu JavaScript">
+            </a>
+          </div>
+        </div>
+
+        <!-- 07 -->
+        <div class="swiper-slide col-3">
+          <div class="custom-block bg-white shadow-lg">
+            <a href="Bao-Mat-Java.html">
+              <div class="d-flex">
+                <div>
+                  <h5 class="mb-2"> Bảo mật Java cơ bản</h5>
+                  <p class="mb-0">Tìm hiểu về Hash, Salt, JWT, và cấu hình an toàn khi phát triển ứng dụng Java.</p>
+                </div>
+                <span class="badge bg-design rounded-pill ms-auto">07</span>
+              </div>
+              <img src="images/roadmap/security_java.png" class="custom-block-image img-fluid" alt="Bảo mật Java">
+            </a>
+          </div>
+        </div>
+
+        <!-- 08 -->
+        <div class="swiper-slide col-3">
+          <div class="custom-block bg-white shadow-lg">
+            <a href="Boa-mat-Java.html">
+              <div class="d-flex">
+                <div>
+                  <h5 class="mb-2"> Bài viết mẫu chi tiết</h5>
+                  <p class="mb-0">Cấu trúc của một bài viết chi tiết, với các thành phần hay dùng và cách tổ chức thông tin.</p>
+                </div>
+                <span class="badge bg-design rounded-pill ms-auto">08</span>
+              </div>
+              <img src="images\tải xuống (5).jpeg" class="custom-block-image img-fluid" alt="Bài viết mẫu">
+            </a>
+          </div>
+        </div>
+
+        <!-- 09 -->
+        <div class="swiper-slide col-3">
+  <div class="custom-block bg-white shadow-lg">
+    <a href="WebSocket-Java.html"> <!-- Liên kết đến trang WebSocket -->
+      <div class="d-flex">
+        <div>
+          <h5 class="mb-2"> WebSocket trong Java</h5>
+          <p class="mb-0">Giới thiệu về WebSocket trong Java, sử dụng để truyền tải dữ liệu theo thời gian thực trong các ứng dụng web.</p>
+        </div>
+        <span class="badge bg-design rounded-pill ms-auto">09</span>
+      </div>
+      <img src="images\java.png" class="custom-block-image img-fluid" alt="WebSocket trong Java"> <!-- Đổi ảnh cho phù hợp -->
+    </a>
+  </div>
+</div>
+
+
+      </div>
+
+      <!-- Pagination + Arrows -->
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- TIMELINE -->
+<section class="timeline-section section-padding" id="section_3">
+  <div class="section-overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="text-white mb-4">Lộ trình học Java & JavaScript</h2>
+        <p class="text-white-50">Từng bước trở thành lập trình viên chuyên nghiệp</p>
+      </div>
+
+      <div class="col-lg-10 col-12 mx-auto">
+        <div class="timeline-container">
+          <ul class="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
+            <div class="list-progress"><div class="inner"></div></div>
+
+            <li>
+              <h4 class="text-white mb-3">Giai đoạn 1: Nền tảng lập trình</h4>
+              <p class="text-white">Cú pháp, biến, kiểu dữ liệu, hàm, vòng lặp; tư duy giải quyết vấn đề; OOP cơ bản.</p>
+              <div class="icon-holder"><i class="bi-lightbulb" aria-hidden="true"></i></div>
+            </li>
+
+            <li>
+              <h4 class="text-white mb-3">Giai đoạn 2: Ứng dụng & Dữ liệu</h4>
+              <p class="text-white">Giao diện (HTML/CSS/JS hoặc Swing/JavaFX), kết nối DB (MySQL/Mongo), gọi API.</p>
+              <div class="icon-holder"><i class="bi-gear" aria-hidden="true"></i></div>
+            </li>
+
+            <li>
+              <h4 class="text-white mb-3">Giai đoạn 3: Dự án & Triển khai</h4>
+              <p class="text-white">Xây project hoàn chỉnh. Java → Spring Boot REST API; JS → React/Node. Deploy GitHub Pages/Vercel.</p>
+              <div class="icon-holder"><i class="bi-rocket-takeoff" aria-hidden="true"></i></div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-12 text-center mt-5">
+        <a href="topics-listing.html" class="btn custom-btn custom-border-btn">Xem các bài viết hướng dẫn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+
+<!-- FOOTER -->
+
+
+<!-- JS -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.sticky.js"></script>
+<script src="js/click-scroll.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  // Swiper
+  var swiper = new Swiper('.roadmap-swiper', {
+    slidesPerView: 3,
+    spaceBetween: 10,
+    slidesPerGroup: 1,
+    loop: true,
+    autoplay: { delay: 3000, disableOnInteraction: false },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    breakpoints: { 0:{slidesPerView:1}, 768:{slidesPerView:2}, 992:{slidesPerView:3} }
+  });
+</script>
 </body>
 </html>

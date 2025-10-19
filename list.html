@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Danh sách bài viết – Blog lập trình Java/JavaScript, backend, lộ trình học.">
+    <meta name="author" content="Tống Anh Thư">
+    <title>Danh sách bài viết — Tống Anh Thư</title>
+
+    <!-- Fonts & CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap"
+        rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/templatemo-topic-listing.css" rel="stylesheet">
+
+    <style>
+        /* ===== Card styles ===== */
+        .card {
+            position: relative;
+            border-radius: 14px;
+            border: 1px solid rgba(2, 6, 23, .08);
+            background: #fff;
+            box-shadow: 0 4px 14px rgba(2, 6, 23, .06);
+            transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 26px rgba(2, 6, 23, .12);
+            border-color: rgba(19, 84, 122, .25);
+        }
+
+        .card-header {
+            background: linear-gradient(0deg, rgba(128, 208, 199, .08), #fff);
+            border-bottom: 1px solid rgba(2, 6, 23, .06);
+            padding: .8rem 1rem;
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .topic-media {
+            margin: 0;
+            height: clamp(130px, 20vw, 170px);
+            background: linear-gradient(180deg, #f4fafc, #eef4f6);
+            overflow: hidden;
+        }
+
+        .topic-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .35s ease;
+        }
+
+        .card:hover .topic-media img {
+            transform: scale(1.04);
+        }
+
+        .card-body {
+            padding: .9rem 1rem 1rem;
+            display: flex;
+            align-items: center;
+            min-height: 72px;
+        }
+
+        .topic-excerpt {
+            margin: 0;
+            color: #64748b;
+            line-height: 1.45;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Link phủ toàn card */
+        .cover-link {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .card>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .card::after {
+            content: "›";
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            width: 28px;
+            height: 28px;
+            display: grid;
+            place-items: center;
+            border-radius: 999px;
+            background: rgba(2, 6, 23, .06);
+            font-size: 18px;
+            line-height: 1;
+            opacity: .7;
+            transition: transform .15s ease, background .15s ease, opacity .15s ease;
+            z-index: 2;
+        }
+
+        .card:hover::after {
+            transform: translateX(4px);
+            background: rgba(19, 84, 122, .12);
+            opacity: 1;
+        }
+
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            .card {
+                background: #0b1220;
+                color: #e6edf3;
+                border-color: rgba(255, 255, 255, .08);
+                box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
+            }
+
+            .card:hover {
+                border-color: rgba(128, 208, 199, .35);
+                background: linear-gradient(0deg, rgba(128, 208, 199, .12), #0b1220);
+            }
+
+            .card-header {
+                background: linear-gradient(0deg, rgba(128, 208, 199, .10), #0b1220);
+                border-bottom-color: rgba(255, 255, 255, .08);
+            }
+
+            .topic-excerpt {
+                color: #9aa6b2;
+            }
+
+            .card::after {
+                background: rgba(255, 255, 255, .08);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <!-- NAV -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html" aria-label="Trang chủ">
+                    <i class="bi-journal-code" aria-hidden="true"></i>
+                    <span>BLOG</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Mở menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-lg-end" id="navbarNav">
+                    <ul class="navbar-nav ms-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="index.html#section_1">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#section_about">Giới thiệu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#section_3">Lộ trình học</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#list">Bài chia sẻ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- HEADER -->
+        <header class="site-header d-flex flex-column justify-content-center align-items-center">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 col-12">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Danh sách bài viết</li>
+                            </ol>
+                        </nav>
+                        <h2 class="text-white">Danh sách bài viết</h2>
+                    </div>
+                    <div class="col-lg-5 d-none d-lg-block"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- LIST GRID -->
+        <section class="section-padding" id="list">
+            <div class="container">
+                <div class="col-12 d-flex flex-column flex-md-row align-items-md-end justify-content-between">
+                    <h3 class="mb-3 mb-md-0">Tất cả các bài viết</h3>
+                    <form class="d-flex mb-3 mb-md-0" role="search" method="get" action="topics-listing.html">
+                        <input class="form-control me-2" type="search" name="q" placeholder="Tìm nhanh..."
+                            aria-label="Tìm kiếm">
+                        <button class="btn btn-outline-primary" type="submit">Tìm kiếm</button>
+                    </form>
+                </div>
+                <div class="row">
+
+                   <div class="swiper-slide col-3">
+          <div class="custom-block bg-white shadow-lg">
+            <a href="Gioi-thieu-Java.html">
+              <div class="d-flex">
+                <div>
+                  <h5 class="mb-2">[01] Giới thiệu về Java</h5>
+                  <p class="mb-0">Giới thiệu cơ bản về Java và các mốc lịch sử quan trọng của Java.</p>
+                </div>
+                <span class="badge bg-design rounded-pill ms-auto">01</span>
+              </div>
+              <img src="images\image.png" class="custom-block-image img-fluid" alt="Giới thiệu Java">
+            </a>
+          </div>
+        </div>
+
+        <!-- 02 -->
+        <div class="swiper-slide col-3">
+          <div class="custom-block bg-white shadow-lg">
+            <a href="java-co-ban-cu-phap.html">
+              <div class="d-flex">
+                <div>
+                  <h5 class="mb-2"> Cú pháp nền tảng Java</h5>
+                  <p class="mb-0">Khám phá cú pháp cơ bản của Java như khai báo biến, kiểu dữ liệu, toán tử và các cấu trúc điều kiện như if/switch.</p>
+                </div>
+                <span class="badge bg-design rounded-pill ms-auto">02</span>
+              </div>
+              <img src="images\tải xuống.jpeg" class="custom-block-image img-fluid" alt="Cú pháp Java">
+            </a>
+          </div>
+        </div>
+
+        <!-- 03 -->
+        <div class="swiper-slide col-3">
+          <div class="custom-block bg-white shadow-lg">
+            <a href="OOP-Java.html">
+              <div class="d-flex">
+                <div>
+                  <h5 class="mb-2"> Lập trình hướng đối tượng (OOP)</h5>
+                  <p class="mb-0">Các khái niệm cơ bản về lập trình hướng đối tượng như Class, Object, Kế thừa, Đa hình, Đóng gói.</p>
+                </div>
+                <span class="badge bg-design rounded-pill ms-auto">03</span>
+              </div>
+              <img src="images\tải xuống (2).jpeg" class="custom-block-image img-fluid" alt="OOP Java">
+            </a>
+          </div>
+        </div>
+
+        <!-- 04 -->
+        <div class="swiper-slide col-3">
+          <div class="custom-block bg-white shadow-lg">
+            <a href="Exception.html">
+              <div class="d-flex">
+                <div>
+                  <h5 class="mb-2"> Xử lý ngoại lệ trong Java</h5>
+                  <p class="mb-0">Sử dụng try-catch-finally để bắt lỗi, cùng với throw/throws để ném và xử lý ngoại lệ.</p>
+                </div>
+                <span class="badge bg-design rounded-pill ms-auto">04</span>
+              </div>
+              <img src="images\tải xuống (4).jpeg" class="custom-block-image img-fluid" alt="Xử lý ngoại lệ">
+            </a>
+          </div>
+        </div>
+
+        <!-- 05 -->
+        <div class="swiper-slide col-3">
+          <div class="custom-block bg-white shadow-lg">
+            <a href="Java-8.html">
+              <div class="d-flex">
+                <div>
+                  <h5 class="mb-2"> Java 8: Lambda & Stream</h5>
+                  <p class="mb-0">Khám phá phong cách lập trình hàm (functional style), sử dụng Stream API, Optional và Date/Time API trong Java 8.</p>
+                </div>
+                <span class="badge bg-design rounded-pill ms-auto">05</span>
+              </div>
+              <img src="images\tải xuống (1).jpeg" class="custom-block-image img-fluid" alt="Java 8 Lambda & Stream">
+            </a>
+          </div>
+        </div>
+
+        <!-- 06 -->
+        <div class="swiper-slide col-3">
+          <div class="custom-block bg-white shadow-lg">
+            <a href="Gioi-Thieu-JavaScript.html">
+              <div class="d-flex">
+                <div>
+                  <h5 class="mb-2"> Giới thiệu về JavaScript</h5>
+                  <p class="mb-0">Khám phá cú pháp cơ bản của JavaScript, bao gồm biến, hàm, DOM, và thao tác với API bằng fetch.</p>
+                </div>
+                <span class="badge bg-design rounded-pill ms-auto">06</span>
+              </div>
+              <img src="images\tải xuống10.jpeg" class="custom-block-image img-fluid" alt="Giới thiệu JavaScript">
+            </a>
+          </div>
+        </div>
+
+        <!-- 07 -->
+        <div class="swiper-slide col-3">
+          <div class="custom-block bg-white shadow-lg">
+            <a href="Bao-Mat-Java.html">
+              <div class="d-flex">
+                <div>
+                  <h5 class="mb-2"> Bảo mật Java cơ bản</h5>
+                  <p class="mb-0">Tìm hiểu về Hash, Salt, JWT, và cấu hình an toàn khi phát triển ứng dụng Java.</p>
+                </div>
+                <span class="badge bg-design rounded-pill ms-auto">07</span>
+              </div>
+              <img src="images/roadmap/security_java.png" class="custom-block-image img-fluid" alt="Bảo mật Java">
+            </a>
+          </div>
+        </div>
+
+        <!-- 08 -->
+        <div class="swiper-slide col-3">
+          <div class="custom-block bg-white shadow-lg">
+            <a href="Boa-mat-Java.html">
+              <div class="d-flex">
+                <div>
+                  <h5 class="mb-2"> Bài viết mẫu chi tiết</h5>
+                  <p class="mb-0">Cấu trúc của một bài viết chi tiết, với các thành phần hay dùng và cách tổ chức thông tin.</p>
+                </div>
+                <span class="badge bg-design rounded-pill ms-auto">08</span>
+              </div>
+              <img src="images\tải xuống (5).jpeg" class="custom-block-image img-fluid" alt="Bài viết mẫu">
+            </a>
+          </div>
+        </div>
+
+        <!-- 09 -->
+        <div class="swiper-slide col-3">
+  <div class="custom-block bg-white shadow-lg">
+    <a href="WebSocket-Java.html"> <!-- Liên kết đến trang WebSocket -->
+      <div class="d-flex">
+        <div>
+          <h5 class="mb-2"> WebSocket trong Java</h5>
+          <p class="mb-0">Giới thiệu về WebSocket trong Java, sử dụng để truyền tải dữ liệu theo thời gian thực trong các ứng dụng web.</p>
+        </div>
+        <span class="badge bg-design rounded-pill ms-auto">09</span>
+      </div>
+      <img src="images\java.png" class="custom-block-image img-fluid" alt="WebSocket trong Java"> <!-- Đổi ảnh cho phù hợp -->
+    </a>
+  </div>
+</div>
+
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-12 mb-4 pb-2">
+                    <a class="navbar-brand mb-2" href="index.html" aria-label="Trang chủ">
+                        <i class="bi-journal-code" aria-hidden="true"></i>
+                        <span>Blog</span>
+                    </a>
+                </div>
+                <!-- Footer content similar to your current structure -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
