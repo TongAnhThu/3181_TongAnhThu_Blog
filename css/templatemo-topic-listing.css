@@ -1417,3 +1417,92 @@ blockquote {
 
 
 
+
+/* === Roadmap – final patch === */
+
+/* Sửa selector sai cú pháp (thêm dấu . giữa 2 class) */
+.roadmap-swiper .swiper-slide.col-3{ 
+  width:auto; flex-shrink:0; height:auto; 
+  display:flex; justify-content:center; align-items:stretch;
+}
+.swiper-slide.col-3{ 
+  display:flex; justify-content:center; align-items:stretch; height:auto; 
+}
+
+/* Slide cao bằng nhau */
+.swiper .swiper-wrapper{ align-items: stretch; }
+.swiper .swiper-slide{ height: auto; }
+
+/* Card chuẩn cho roadmap (đừng set max-width cứng) */
+.roadmap-swiper .custom-block{
+  height:100%;
+  display:flex; flex-direction:column;
+  border-radius:16px; overflow:hidden;
+  border:1px solid rgba(0,0,0,.06);
+  background:#fff;
+  transition:transform .25s ease, box-shadow .25s ease;
+  padding:16px 16px 0;
+}
+.roadmap-swiper .custom-block:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+}
+.roadmap-swiper .custom-block a{
+  display:block; color:inherit; text-decoration:none;
+}
+
+/* Title/desc clamp để các card không “đội” chiều cao */
+.roadmap-swiper h5{
+  font-weight:700; line-height:1.25; margin:0 0 4px;
+  display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden;
+  -webkit-line-clamp:2;
+}
+.roadmap-swiper p{
+  color:#6b7280; margin:0 0 10px;
+  display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden;
+  -webkit-line-clamp:3;
+}
+
+/* Badge không chặn click */
+.roadmap-swiper .custom-block .badge{ pointer-events:none; }
+
+/* Ảnh 16:9 đều nhau và luôn nằm đáy card */
+.roadmap-swiper .custom-block-image{
+  width:100%; aspect-ratio:16/9; object-fit:cover; display:block;
+  border-bottom-left-radius:16px; border-bottom-right-radius:16px;
+  margin-top:auto;
+}
+
+/* Nút điều hướng đẩy ra ngoài, nhỏ gọn */
+.roadmap-swiper{
+  padding:6px 56px 36px; position:relative;
+}
+.roadmap-swiper .swiper-button-prev,
+.roadmap-swiper .swiper-button-next{
+  position:absolute; top:50%; transform:translateY(-50%);
+}
+.roadmap-swiper .swiper-button-prev{ left:-20px; }
+.roadmap-swiper .swiper-button-next{ right:-20px; }
+.roadmap-swiper .swiper-button-prev:after,
+.roadmap-swiper .swiper-button-next:after{ font-size:18px; color:#111827 }
+
+/* Progressbar mảnh, nằm dưới cụm slide */
+.roadmap-swiper .swiper-pagination{ left:56px !important; right:56px !important; }
+.roadmap-swiper .swiper-pagination-progressbar{ 
+  background:rgba(0,0,0,.08); height:4px; border-radius:999px; 
+}
+.roadmap-swiper .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
+  background:linear-gradient(135deg,#34d399,#10b981); border-radius:999px;
+}
+
+/* Responsive tinh chỉnh nhẹ (tuỳ chọn) */
+@media (max-width: 992px){
+  .roadmap-swiper{ padding:6px 40px 32px; }
+  .roadmap-swiper .swiper-button-prev{ left:-14px }
+  .roadmap-swiper .swiper-button-next{ right:-14px }
+}
+@media (max-width: 576px){
+  .roadmap-swiper{ padding:6px 32px 28px; }
+  .roadmap-swiper .swiper-button-prev{ left:-10px }
+  .roadmap-swiper .swiper-button-next{ right:-10px }
+}

@@ -309,7 +309,7 @@
           </div>
 
           <div class="col-12 text-center mt-5">
-            <a href="topics-listing.html" class="btn custom-btn custom-border-btn">Xem các bài viết hướng dẫn</a>
+            <a href="list.html" class="btn custom-btn custom-border-btn">Xem các bài viết hướng dẫn</a>
           </div>
         </div>
       </div>
@@ -344,3 +344,28 @@
 </body>
 
 </html>
+<script>
+  const roadmapSwiper = new Swiper('.roadmap-swiper', {
+    slidesPerView: 3,
+    spaceBetween: 24,
+    speed: 500,
+    // không “nuốt” click
+    preventClicks: false,
+    preventClicksPropagation: false,
+    // nút điều hướng + progressbar
+    navigation: {
+      nextEl: '.roadmap-swiper .swiper-button-next',
+      prevEl: '.roadmap-swiper .swiper-button-prev',
+    },
+    pagination: {
+      el: '.roadmap-swiper .swiper-pagination',
+      type: 'progressbar',
+    },
+    // responsive
+    breakpoints: {
+      0:   { slidesPerView: 1, spaceBetween: 16 },
+      768: { slidesPerView: 2, spaceBetween: 20 },
+      992: { slidesPerView: 3, spaceBetween: 24 }
+    }
+  });
+</script>
